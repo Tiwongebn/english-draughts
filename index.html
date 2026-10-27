@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>English Draughts</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="table">
+    <header class="hero">
+      <span class="chip w" aria-hidden="true"></span>
+      <div class="titleblock">
+        <h1>English Draughts</h1>
+        <p class="sub">Jump, crown and corner the machine.</p>
+      </div>
+      <span class="chip b" aria-hidden="true"></span>
+    </header>
+
+    <main class="app">
+      <section class="board-wrap">
+        <div class="status" id="status" aria-live="polite"></div>
+        <div class="frame">
+          <i class="stud tl"></i><i class="stud tr"></i><i class="stud bl"></i><i class="stud br"></i>
+          <div class="board" id="board" aria-label="Draughts board"></div>
+          <div class="overlay" id="overlay">
+            <div class="box">
+              <div class="icon" id="overIcon">🏆</div>
+              <h2 id="overTitle"></h2>
+              <p id="overText"></p>
+              <button class="btn" id="overBtn">Play again</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="side">
+        <div class="cards">
+          <div class="card" id="cardW">
+            <div class="name"><span class="dot w"></span><span id="nameW">White</span></div>
+            <div class="count" id="countW">12</div>
+            <div class="meta" id="metaW"></div>
+            <div class="tray" id="trayW" aria-label="Pieces White has captured"></div>
+          </div>
+          <div class="card" id="cardB">
+            <div class="name"><span class="dot b"></span><span id="nameB">Black</span></div>
+            <div class="count" id="countB">12</div>
+            <div class="meta" id="metaB"></div>
+            <div class="tray" id="trayB" aria-label="Pieces Black has captured"></div>
+          </div>
+        </div>
+
+        <div class="panel controls">
+          <label>You play
+            <select id="side">
+              <option value="w">White (bottom)</option>
+              <option value="b">Black (top)</option>
+            </select>
+          </label>
+          <label>AI strength
+            <select id="level">
+              <option value="2">Easy (AI depth 2)</option>
+              <option value="4" selected>Medium (AI depth 4)</option>
+              <option value="6">Hard (AI depth 6)</option>
+            </select>
+          </label>
+          <label class="check" for="hints">
+            <input type="checkbox" id="hints">
+            <span>Highlight possible moves <small id="hintsNote"></small></span>
+          </label>
+          <div class="actions">
+            <button class="btn primary" id="restart">Restart Game</button>
+            <button class="btn" id="sound" aria-pressed="true">🔊 Sound on</button>
+          </div>
+        </div>
+
+        <div class="panel log-box">
+          <h2>Move log</h2>
+          <ol class="log" id="log"></ol>
+        </div>
+      </aside>
+    </main>
+
+    <details class="howto">
+      <summary>How to play</summary>
+      <p>
+        Black moves first. Men move diagonally forward; kings move and capture in all four directions.
+        If a capture is available you must take it, and you must keep jumping while further jumps exist.
+        A man that reaches the far row is crowned and its turn ends. The game is drawn after 40 moves
+        each without a capture or a man move. Move highlighting (pieces that can move, their
+        destination squares, captures and the "you must capture" notice) is always on in Easy and
+        optional in Medium and Hard, where it starts switched off.
+      </p>
+    </details>
+  </div>
+
+<script src="js/engine.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

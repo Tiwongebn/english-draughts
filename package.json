@@ -1,0 +1,9 @@
+{
+  "name": "english-draughts",
+  "version": "1.0.0",
+  "description": "English draughts (checkers) in plain HTML, CSS and JavaScript with a minimax AI.",
+  "private": true,
+  "scripts": {
+    "test": "node tests/engine.test.js"
+  }
+}
